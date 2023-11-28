@@ -1,14 +1,21 @@
-document.addEventListener('DOMContentLoaded', logSubmit, false);
+//document.addEventListener('DOMContentLoaded', processList, false);
 
-function logSubmit(event) {
-    log.textContent = `Form Submitted! Timestamp: ${event.timeStamp}`;
-    event.preventDefault();
-    console.log("TESTTEST")
+function processList(event) {
+    console.log(event)
+    return "processed"
 }
 
 const form = document.getElementById("form");
 const log = document.getElementById("log");
 if (form){
-    form.addEventListener("submit", logSubmit);
+    form.addEventListener("submit", processList);
 }
+
+var sampleList = ["red", "blue", "green", "orange"]
+
+var newList = sampleList.map(element => { return `<li>${element}</li>`}).join("")
+
+document.getElementById("newList").innerHTML = newList
+
+console.log(newList)
   
